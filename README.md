@@ -97,7 +97,7 @@ The IEDB provided version was retrieved on 29th November 2022.
 
 If you use NetCleave, please cite us:
 
-> <p align="justify"> Farriol-Duran, R., Vallejo-Vallés, M., Amengual-Rigo, P., Floor, M. & Guallar, V. NetCleave: An Open-Source Algorithm for Predicting C-Terminal Antigen Processing for MHC-I and MHC-II. in Computational Vaccine Design (ed. Reche, P. A.) 211–226 (Springer US, New York, NY, 2023). doi:10.1007/978-1-0716-3239-0_15.
+> <p align="justify"> Farriol-Duran, R., Vallejo-Vallés, M., Amengual-Rigo, P., Floor, M. & Guallar, V. NetCleave: An Open-Source Algorithm for Predicting C-Terminal Antigen Processing for MHC-I and MHC-II. in Computational Vaccine Design (ed. Reche, P. A.) 211–226 (Springer US, New York, NY, 2023). https://doi:10.1007/978-1-0716-3239-0_15.
 </p>
 
 > <p align="justify"> Amengual-Rigo, P., Guallar, V. NetCleave: an open-source algorithm for predicting C-terminal antigen processing for MHC-I and MHC-II. Sci Rep 11, 13126 (2021). https://doi.org/10.1038/s41598-021-92632-y

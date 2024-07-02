@@ -42,7 +42,7 @@ python3 NetCleave.py --predict (fasta) --pred_input 1
 python3 NetCleave.py --predict (csv)  --pred_input 2
 ```
 
-3. CSV file with peptide sequences to predict (column name: *epitope*), the identifier (column name: *protein_id*) and sequence of the protein where they come (column name: *protein_seq*). Same as type 2, those complete protein sequences will be used to create the 4+3 sequences.
+3. CSV file with peptide sequences to predict (column name: *epitope*), the identifier (column name: *protein_name*) and sequence of the protein where they come (column name: *protein_seq*). Same as type 2, those complete protein sequences will be used to create the 4+3 sequences.
 
 ```
 python3 NetCleave.py --predict (csv)  --pred_input 3

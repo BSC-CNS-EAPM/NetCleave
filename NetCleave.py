@@ -11,6 +11,7 @@ Command:\n \
 ----------\n \
 Run: python3 NetCleave.py --ARG\
 '
+MAIN_PATH = __file__.split('NetCleave.py')[0]
 
 def parse_args():
     """
@@ -141,20 +142,20 @@ def main(generate=False, train=False, predict=False):
     if data_path!= 'None':
         training_data_path = data_path
     else:
-        training_data_path = 'data/training_data/{}_{}_{}'.format(mhc_class, technique.replace(' ', '-'), mhc_allele)
+        training_data_path = MAIN_PATH+'data/training_data/{}_{}_{}'.format(mhc_class, technique.replace(' ', '-'), mhc_allele)
     if model_path!= 'None':
         models_export_path = model_path
     else:
-        models_export_path = 'data/models/{}_{}_{}'.format(mhc_class, technique.replace(' ', '-'), mhc_allele)
+        models_export_path = MAIN_PATH + 'data/models/{}_{}_{}'.format(mhc_class, technique.replace(' ', '-'), mhc_allele)
 
     if not any([generate, train, predict]):
         print('Please, provide an argument. See python3 NetCleave.py -h for more information')
 
     if generate:
         print('---> Generating training data, type {}...'.format(train_input))
-        uniprot_path = 'data/databases/uniprot/uniprot_sprot.fasta' # download and decompress from https://www.uniprot.org/downloads REVIEWED fasta
-        uniparc_path_headers = 'data/databases/uniparc/uniparc-yourlist_M20200416A94466D2655679D1FD8953E075198DA854EB3ES.tab'
-        uniparc_path_sequence = 'data/databases/uniparc/uniparc-yourlist_M20200416A94466D2655679D1FD8953E075198DA854EB3ES.fasta'
+        uniprot_path = MAIN_PATH+'data/databases/uniprot/uniprot_sprot.fasta' # download and decompress from https://www.uniprot.org/downloads REVIEWED fasta
+        uniparc_path_headers = MAIN_PATH+'data/databases/uniparc/uniparc-yourlist_M20200416A94466D2655679D1FD8953E075198DA854EB3ES.tab'
+        uniparc_path_sequence = MAIN_PATH+'data/databases/uniparc/uniparc-yourlist_M20200416A94466D2655679D1FD8953E075198DA854EB3ES.fasta'
         if train_input==1:
             peptide_path = peptide_data
             iedb_conditions = {
@@ -214,7 +215,7 @@ def main(generate=False, train=False, predict=False):
                 predict_csv.score_set(outfile, models_export_path, 'ABC')
 
         if pred_input==2: # predict csv file with uniprot id
-            uniprot_path = 'data/databases/uniprot/uniprot_sprot.fasta'
+            uniprot_path = MAIN_PATH+'data/databases/uniprot/uniprot_sprot.fasta'
             uniprot_data = uniprot_extractor.extract_uniprot_data(uniprot_path)
             outfile = cleavage_site_generator.generateCleavageSitesUniprot(predict,uniprot_data)
             predict_csv.score_set(outfile, models_export_path, 'ABC',uniprot=True)
@@ -245,7 +246,7 @@ if __name__ == '__main__':
     train_input = arguments.train_input
 
     if mhc_options:
-        files = sorted(os.listdir('./data/models'))
+        files = sorted(os.listdir(MAIN_PATH+'data/models'))
         print('\nAVAILABLE PRE-TRAINED MODELS:')
         for n,i in enumerate(files):
             elements=i.split('_')

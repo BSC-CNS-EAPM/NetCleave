@@ -8,6 +8,8 @@ from keras.layers import Dense, Dropout
 from keras import backend as K
 from tensorflow.keras.optimizers import SGD
 
+MAIN_PATH = __file__.split('NetCleave.py')[0]
+
 def score_set(data_path, model_path, name, uniprot=False):
     print('---> Prediction using model: {}'.format(model_path))
     peptide_length = 7
@@ -20,13 +22,14 @@ def score_set(data_path, model_path, name, uniprot=False):
     prediction_df = pd.DataFrame(prediction, columns=['prediction'])
     pd.options.mode.chained_assignment = None  # Disable SettingWithCopyWarning
     df['prediction'] = prediction_df['prediction']
-    df['prediction'][df.cleavage_site.isna()] = np.nan
+    df.loc[df.cleavage_site.isna(), "prediction"] = np.nan
+    #df['prediction'][df.cleavage_site.isna()] = np.nan
 
     if uniprot==False:
         df = df.set_index('epitope_id')
 
-    if not os.path.exists('./output/'):
-        os.mkdir('./output/')
+    if not os.path.exists(MAIN_PATH+'output/'):
+        os.mkdir(MAIN_PATH+'output/')
 
     outfile = data_path.split('.')[0] + '_NetCleave.csv'
     df.to_csv(outfile, header=True)
@@ -55,7 +58,7 @@ def read_data_table(path):
 
 def read_descriptors_table():
     print("---> Reading descriptors...")
-    path = "predictor/ml_main/QSAR_table.csv"
+    path = MAIN_PATH+"predictor/ml_main/QSAR_table.csv"
     df = pd.read_csv(path, sep=",", header=0, index_col=0)
     scaler = StandardScaler()
     scaled_data = scaler.fit_transform(df)

@@ -19,7 +19,11 @@ Command:\n \
 ----------\n \
 Run: python3 NetCleave.py --ARG\
 "
-MAIN_PATH = __file__.split("NetCleave.py")[0]
+
+if "NetCleave.py" in __file__:
+    MAIN_PATH = __file__.split("NetCleave.py")[0]
+else:
+    MAIN_PATH = os.getcwd()
 
 # Append to path
 import sys

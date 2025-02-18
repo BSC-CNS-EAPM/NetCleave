@@ -1,6 +1,6 @@
 # NetCleave
 
-NetCleave is a retrainable Neural Network method for predicting C-terminal peptide processing of MHC (class I and II) pathways. In brief, NetCleave maps reported Immune Epitope Database (IEDB) peptides to protein sequences in UniProt/UniParc. Once the C-terminal cleavage site (4+3 residues) is identified, the amino acid sequences are coded using QSAR descriptors, including steric, electrostatic, and hydrophobic properties. Finally, a Neural Network architecture is used to generate the predictive model.
+NetCleave is a retrainable Neural Network method for predicting C-terminal peptide processing of MHC (class I and II) pathways. In brief, NetCleave maps reported Immune Epitope Database (IEDB) peptides to protein sequences in UniProt/UniParc. Once the C-terminal cleavage site (4+3 residues) is identified, the amino acid sequences are coded using QSAR descriptors, including steric, electrostatic, and hydrophobic properties. Finally, a Neural Network architecture is used to generate the predictive model. 
 
 <p align="center">
 <img src="images/figure1.png" width="600">
